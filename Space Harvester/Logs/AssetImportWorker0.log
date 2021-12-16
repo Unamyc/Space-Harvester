@@ -456,3 +456,4 @@ Received Import Request.
 Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Square.png using Guid(48e93eef0688c4a259cb0eddcd8661f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65fac74c15af4608a09893e4d086526f') in 0.034710 seconds 
   Import took 0.040627 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
