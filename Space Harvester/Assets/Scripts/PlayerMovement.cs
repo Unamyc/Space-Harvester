@@ -1,24 +1,17 @@
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5000f;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float returnSpeed = -10f;
     
     private InputMaster _Controls;
-    // [SerializeField] private InputAction moveAction;
-
-    // [SerializeField] private InputActionMap playerActions;
 
     private void Awake()
     {
-        
-        /*
-        // Adding MoveAction to ActionMap
-        moveAction = new InputAction("move",
-            binding: "<Keyboard>/space");*/
         _Controls = new InputMaster();
-
-        // _Controls.Player.Move.performed += ctx => Move();
 
     }
 
@@ -35,10 +28,27 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (_Controls.Player.Move.triggered)
-        {
-            Debug.Log("NIQUE !");
+        MovePlayer();
+    }
+    
+    void OnCollisionEnter(Collision other)
+    {
+        AttachToPlanet(other);
+    }
 
+    private void AttachToPlanet(Collision other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    private void MovePlayer()
+    {
+        if (_Controls.Player.Move.inProgress)
+        {
+            transform.Translate(0, speed * Time.deltaTime, 0);
         }
     }
 }
