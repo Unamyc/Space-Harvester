@@ -39,17 +39,25 @@ public class PlayerMovement : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D other)
     {
+        bool ownASoul = transform.Find("PS_Soul") != null;
         if (canAttachToPlatform && other.gameObject.CompareTag("Platform") && transform.parent == null)
         {
             AttachToPlatform(other);
+            if (other.gameObject.name.Contains("Cemetery") && ownASoul)
+            {
+                other.gameObject.GetComponent<Cemetery>().IncrementSouls();
+                Destroy(transform.Find("PS_Soul").gameObject);
+            }
         }
 
-        if (other.gameObject.name == "PS_Soul")
+        if (other.gameObject.name == "PS_Soul" && !ownASoul)
         {
             other.transform.SetParent(transform, true);
             other.collider.enabled = false;
             other.transform.position = transform.position;
-            other.transform.rotation = transform.rotation;;
+            other.transform.rotation = transform.rotation;
+            other.transform.localScale = new Vector3(1, 1, 1);
+
         }
     }
 
