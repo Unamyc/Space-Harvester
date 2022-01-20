@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform") && transform.parent == null)
+        if (canAttachToPlatform && other.gameObject.CompareTag("Platform") && transform.parent == null)
         {
             AttachToPlatform(other);
         }
