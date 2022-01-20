@@ -83,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(0, speed * Time.deltaTime, 0);
             DetachFromPlatform();
-            // transform.Translate(0, returnSpeed * Time.deltaTime, 0);
         }
         else if(!_Controls.Player.Move.inProgress && !canMove)
         {
@@ -92,6 +91,11 @@ public class PlayerMovement : MonoBehaviour
         if(!_Controls.Player.Move.inProgress)
         {
             canAttachToPlatform = true;
+        }
+
+        if (!_Controls.Player.Move.inProgress && transform.parent == null)
+        {
+            transform.Translate(0, returnSpeed * Time.deltaTime, 0);
         }
     }
     
