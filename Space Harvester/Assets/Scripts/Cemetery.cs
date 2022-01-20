@@ -30,10 +30,10 @@ public class Cemetery : PlanetRotation
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        ToggleRotationisInversed();
+        ToggleRotationisReversed();
     }
 
-    void ToggleRotationisInversed()
+    void ToggleRotationisReversed()
     {
         RotationIsReversed = !RotationIsReversed;
     }
