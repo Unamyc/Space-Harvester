@@ -13,10 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private InputMaster _Controls;
     private bool canMove = true;
     private bool canAttachToPlatform = true;
-    private List<GameObject> listOfParticuleSystems;
 
     public GameObject Cemetry;
-    public GameObject particuleSysteme;
 
     private void Awake()
     {
@@ -134,25 +132,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        DestroyParticuleSysteme();
         Cemetry.GetComponent<Cemetery>().Respawn();
 
         Destroy(gameObject);
     }
 
-    private void CreateParticule()
-    {
-        listOfParticuleSystems.Add(Instantiate(particuleSysteme, transform.position, Quaternion.identity));
-    }
-
-    private void DestroyParticuleSysteme()
-    {
-        for (int i = 0; i < listOfParticuleSystems.Count; i++)
-        {
-            Destroy(listOfParticuleSystems[i]);
-        }
-
-        listOfParticuleSystems.Clear();
-    }
 }
 

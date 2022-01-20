@@ -21,7 +21,7 @@ public class Soul : MonoBehaviour
         transform.rotation = startRotation;
         transform.localScale = new Vector3(1, 1, 1);
 
-        GetComponent<Collider>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
     }
 
     public void SetPlayer(GameObject newPlayer)
