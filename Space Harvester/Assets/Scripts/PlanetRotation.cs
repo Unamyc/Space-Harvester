@@ -5,8 +5,8 @@ using UnityEngine.Serialization;
 
 public class PlanetRotation : MonoBehaviour
 {
-    [SerializeField] private bool rotationIsReversed = false;
-    [SerializeField] private float rotationSpeed = 50;
+    [SerializeField] protected bool RotationIsReversed = false;
+    [SerializeField] protected float RotationSpeed = 50f;
 
     // Start is called before the first frame update
  
@@ -14,6 +14,6 @@ public class PlanetRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate((rotationIsReversed ? Vector3.forward : Vector3.back) *  Time.deltaTime * rotationSpeed);
+        transform.Rotate((RotationIsReversed ? Vector3.forward : Vector3.back) *  Time.deltaTime * RotationSpeed);
     }
 }
