@@ -35,9 +35,11 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        /*
         for (int i = 0; i < listOfCemetry.Count; i++)
         {
             listOfCemetry[i].GetComponent<Cemetery>().Respawn();
         }
+        */
     }
 }

@@ -61,7 +61,7 @@ public class Cemetery : PlanetRotation
 
     private void Win()
     {
-     _gameManager.DeclareAWinner("Player " + name[name.Length - 1]);   
+        _gameManager.DeclareAWinner("Player " + name[name.Length - 1]);
     }
     
 

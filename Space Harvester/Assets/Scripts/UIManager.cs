@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject Menu;
 
+    private GameManager _gameManager;
+
     private void Awake()
     {
         if(s_Singleton != null)
@@ -20,9 +22,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     public void RestartGame()
     {
-        GameManager.s_Singleton.RestartGame();
+        _gameManager.RestartGame();
         Menu.SetActive(false);
     }
 

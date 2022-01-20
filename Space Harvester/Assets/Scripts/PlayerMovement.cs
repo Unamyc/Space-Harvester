@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        DestroyParticuleSysteme();
+        //DestroyParticuleSysteme();
         Cemetry.GetComponent<Cemetery>().Respawn();
 
         Destroy(gameObject);
