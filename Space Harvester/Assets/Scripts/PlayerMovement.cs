@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     private InputMaster _Controls;
     private bool canMove = true;
+    private bool canAttachToPlatform = true;
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
         {
             AttachToPlatform(other);
         }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,20 +62,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void AttachToPlatform(Collision2D other)
     {
-        Debug.Log("Nique");
         canMove = false;
 
         transform.SetParent(other.transform, true);
 
         transform.localRotation = Quaternion.identity;
         transform.up = (other.transform.position - transform.position) * -1;
-
-        print(other.transform.position);
     }
 
     private void DetachFromPlatform()
     {
+        canAttachToPlatform = false;
         transform.SetParent(null, true);
+        StartCoroutine(FixDetach());
     }
 
     private void MovePlayer()
@@ -86,6 +89,16 @@ public class PlayerMovement : MonoBehaviour
         {
             canMove = true;
         }
+        if(!_Controls.Player.Move.inProgress)
+        {
+            canAttachToPlatform = true;
+        }
+    }
+    
+    private IEnumerator FixDetach()
+    {
+        yield return new WaitForSeconds(1);
+        canAttachToPlatform = true;
     }
 
     private void DestroyPlayer()
