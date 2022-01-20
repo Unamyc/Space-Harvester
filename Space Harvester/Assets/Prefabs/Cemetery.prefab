@@ -350,8 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationIsReversed: 0
   RotationSpeed: 50
-  SoulsNumber: 0
-  PlayerPrefab: {fileID: 3664242635175626998, guid: 8259d142d7e92e748801044900d674ad, type: 3}
+  soulsNumber: 0
+  maxSoulsNumber: 5
+  playerPrefab: {fileID: 3664242635175626998, guid: 8259d142d7e92e748801044900d674ad, type: 3}
 --- !u!58 &4497857232087134795
 CircleCollider2D:
   m_ObjectHideFlags: 0

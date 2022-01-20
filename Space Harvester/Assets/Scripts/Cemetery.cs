@@ -1,25 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cemetery : PlanetRotation
 {
-    [SerializeField] private byte SoulsNumber = 0;
-    [SerializeField]private GameObject PlayerPrefab;
+    [SerializeField] private byte soulsNumber = 0;
+    [SerializeField] private byte maxSoulsNumber = 5;
+    [SerializeField] private GameObject playerPrefab;
+    private GameManager _gameManager;
 
 
-    private GameObject Player;
+    private GameObject _player;
     // Start is called before the first frame update
     void Start(){
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         Transform limit1 = transform.Find("Limit1");
         Transform limit2 = transform.Find("Limit2");
         limit1.SetParent(null, true);
         limit2.SetParent(null, true);
         
         Transform playerSpawn = transform.Find("PlayerSpawn");
-        Player = Instantiate(PlayerPrefab, transform, true);
-        Player.transform.position = playerSpawn.position;
-        Player.transform.rotation = playerSpawn.rotation;
+        _player = Instantiate(playerPrefab, transform, true);
+        _player.transform.position = playerSpawn.position;
+        _player.transform.rotation = playerSpawn.rotation;
     }
 
     // Update is called once per frame
@@ -37,4 +42,21 @@ public class Cemetery : PlanetRotation
     {
         RotationIsReversed = !RotationIsReversed;
     }
+    
+    public void IncrementSouls()
+    {
+        ++soulsNumber;
+        if (soulsNumber == maxSoulsNumber)
+        {
+            Win();
+        }
+    }
+
+    private void Win()
+    {
+     _gameManager.DeclareAWinner("Player " + name[name.Length - 1]);   
+    }
+    
+
 }
+
