@@ -55,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.name == "PS_Soul" && !ownASoul)
         {
-            other.transform.SetParent(transform, true);
             other.collider.enabled = false;
+            other.transform.SetParent(transform, true);
             other.transform.position = transform.position;
             other.transform.rotation = transform.rotation;
             other.transform.localScale = new Vector3(1, 1, 1);
@@ -126,6 +126,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void DestroyPlayer()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if(transform.GetChild(i).GetComponent<Soul>())
+            {
+                transform.GetChild(i).GetComponent<Soul>().Reset();
+            }
+        }
+        
         DestroyParticuleSysteme();
         Cemetry.GetComponent<Cemetery>().Respawn();
 
