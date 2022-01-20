@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager s_Singleton;
 
+    public GameObject Menu;
+
     private void Awake()
     {
         if(s_Singleton != null)
@@ -16,5 +18,10 @@ public class UIManager : MonoBehaviour
         {
             s_Singleton = this;
         }
+    }
+
+    public void RestartGame()
+    {
+        Menu.SetActive(false);
     }
 }
