@@ -105,6 +105,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(!_Controls.Player.Move.inProgress && !canMove)
         {
+            _Controls.Player.Move.Enable();
+
             canMove = true;
         }
         if(!_Controls.Player.Move.inProgress)
@@ -114,7 +116,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (!_Controls.Player.Move.inProgress && transform.parent == null)
         {
+            _Controls.Player.Move.Disable();
             transform.Translate(0, returnSpeed * Time.deltaTime, 0);
+            canMove = false;
         }
     }
     
