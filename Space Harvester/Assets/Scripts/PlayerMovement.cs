@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
     private bool canAttachToPlatform = true;
 
+    public GameObject Cemetry;
+
     private void Awake()
     {
         _Controls = new InputMaster();
@@ -113,6 +115,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void DestroyPlayer()
     {
+        
+        Cemetry.GetComponent<Cemetery>().Respawn();
+
         Destroy(gameObject);
     }
 }

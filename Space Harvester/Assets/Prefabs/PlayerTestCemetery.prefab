@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8567446912638087202}
   - component: {fileID: 4755164595199813232}
   - component: {fileID: 4189619757843135998}
-  - component: {fileID: 6014284214821296304}
   - component: {fileID: 6723065691002699744}
+  - component: {fileID: 6014284214821296304}
   m_Layer: 0
   m_Name: PlayerTestCemetery
   m_TagString: Untagged
@@ -101,20 +101,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.99999994, y: 2}
   m_Direction: 0
---- !u!114 &6014284214821296304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3664242635175626998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e16b77d31b3f6e4aad071f1461b91d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  returnSpeed: -10
 --- !u!50 &6723065691002699744
 Rigidbody2D:
   serializedVersion: 4
@@ -136,3 +122,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6014284214821296304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664242635175626998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16b77d31b3f6e4aad071f1461b91d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  returnSpeed: -10
