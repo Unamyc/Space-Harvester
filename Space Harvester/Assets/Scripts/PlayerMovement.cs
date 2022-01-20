@@ -38,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform") && transform.parent == null)
         {
             AttachToPlatform(other);
+            print("Coll : " + other.transform.name);
+        }
+        else
+        {
+            print("Caaaoll : " + other.transform.name);
         }
     }
 

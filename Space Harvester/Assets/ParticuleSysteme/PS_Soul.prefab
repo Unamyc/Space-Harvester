@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9119695802785118818}
   - component: {fileID: 4797010344722548164}
   - component: {fileID: 4797010344722548165}
-  - component: {fileID: 6312845283287671508}
   m_Layer: 0
   m_Name: PS_Soul
   m_TagString: Untagged
@@ -4822,19 +4821,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!58 &6312845283287671508
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4797010344722548219}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1875}
-  serializedVersion: 2
-  m_Radius: 0.9975002
