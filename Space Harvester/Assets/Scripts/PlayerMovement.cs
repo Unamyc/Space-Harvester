@@ -42,7 +42,13 @@ public class PlayerMovement : MonoBehaviour
             AttachToPlatform(other);
         }
 
-
+        if (other.gameObject.name == "PS_Soul")
+        {
+            other.transform.SetParent(transform, true);
+            other.collider.enabled = false;
+            other.transform.position = transform.position;
+            other.transform.rotation = transform.rotation;;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
