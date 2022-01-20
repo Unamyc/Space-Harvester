@@ -22,6 +22,12 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
+        GameManager.s_Singleton.RestartGame();
         Menu.SetActive(false);
+    }
+
+    public void ShowMenu()
+    {
+        Menu.SetActive(true);
     }
 }
