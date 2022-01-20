@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float returnSpeed = -10f;
     
     private InputMaster _Controls;
+    private bool canMove = true;
 
     private void Awake()
     {
@@ -43,8 +44,14 @@ public class PlayerMovement : MonoBehaviour
     private void AttachToPlatform(Collision2D other)
     {
         Debug.Log("Nique");
+        canMove = false;
+
         transform.SetParent(other.transform, true);
-        transform.eulerAngles.Set(0,0,90);
+
+        transform.localRotation = Quaternion.identity;
+        transform.up = (other.transform.position - transform.position) * -1;
+
+        print(other.transform.position);
     }
     private void DetachFromPlatform()
     {
@@ -53,11 +60,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (_Controls.Player.Move.inProgress)
+        if (_Controls.Player.Move.inProgress && canMove)
         {
             transform.Translate(0, speed * Time.deltaTime, 0);
             DetachFromPlatform();
             // transform.Translate(0, returnSpeed * Time.deltaTime, 0);
+        }
+        else if(!_Controls.Player.Move.inProgress && !canMove)
+        {
+            canMove = true;
         }
     }
 }

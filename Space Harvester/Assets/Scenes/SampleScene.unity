@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cemetery2
       objectReference: {fileID: 0}
+    - target: {fileID: 4497857232087134799, guid: 3d94e905e4e947b42b03174012514027, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4497857232087134900, guid: 3d94e905e4e947b42b03174012514027, type: 3}
       propertyPath: m_UseFullKinematicContacts
       value: 1
