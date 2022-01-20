@@ -1,4 +1,5 @@
 using System;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -31,17 +32,23 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
     
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        AttachToPlanet(other);
+        if (other.gameObject.CompareTag("Platform") && transform.parent == null)
+        {
+            AttachToPlatform(other);
+        }
     }
 
-    private void AttachToPlanet(Collision other)
+    private void AttachToPlatform(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            transform.parent = other.transform;
-        }
+        Debug.Log("Nique");
+        transform.SetParent(other.transform, true);
+        transform.eulerAngles.Set(0,0,90);
+    }
+    private void DetachFromPlatform()
+    {
+        transform.SetParent(null, true);
     }
 
     private void MovePlayer()
@@ -49,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         if (_Controls.Player.Move.inProgress)
         {
             transform.Translate(0, speed * Time.deltaTime, 0);
+            DetachFromPlatform();
+            // transform.Translate(0, returnSpeed * Time.deltaTime, 0);
         }
     }
 }
