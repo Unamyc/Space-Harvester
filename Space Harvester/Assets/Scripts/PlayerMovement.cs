@@ -38,11 +38,21 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform") && transform.parent == null)
         {
             AttachToPlatform(other);
-            print("Coll : " + other.transform.name);
         }
-        else
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.parent != null)
         {
-            print("Caaaoll : " + other.transform.name);
+            if (collision.transform.parent.gameObject.CompareTag("DeathWall"))
+            {
+                DestroyPlayer();
+            }
+        }
+        else if(collision.gameObject.CompareTag("Limit"))
+        {
+            transform.parent.GetComponent<Cemetery>().ToggleRotationisReversed();
         }
     }
 
@@ -58,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         print(other.transform.position);
     }
+
     private void DetachFromPlatform()
     {
         transform.SetParent(null, true);
@@ -75,6 +86,11 @@ public class PlayerMovement : MonoBehaviour
         {
             canMove = true;
         }
+    }
+
+    private void DestroyPlayer()
+    {
+        Destroy(gameObject);
     }
 }
 

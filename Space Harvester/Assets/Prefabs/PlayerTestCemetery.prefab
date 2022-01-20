@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4755164595199813232}
   - component: {fileID: 4189619757843135998}
   - component: {fileID: 6014284214821296304}
+  - component: {fileID: 6723065691002699744}
   m_Layer: 0
   m_Name: PlayerTestCemetery
   m_TagString: Untagged
@@ -114,3 +115,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   returnSpeed: -10
+--- !u!50 &6723065691002699744
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664242635175626998}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -32,13 +32,8 @@ public class Cemetery : PlanetRotation
     {
         transform.Rotate((RotationIsReversed ? Vector3.forward : Vector3.back) *  Time.deltaTime * RotationSpeed);
     }
-    
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        ToggleRotationisReversed();
-    }
 
-    void ToggleRotationisReversed()
+    public void ToggleRotationisReversed()
     {
         RotationIsReversed = !RotationIsReversed;
     }
